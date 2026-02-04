@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="CHROMATIC - Skeuomorphic Color Picker">
-    <title>CHROMATIC - Color Picker</title>
+    <meta name="description" content="北离颜色选择器 - 隐私政策">
+    <title>隐私政策 - 北离颜色选择器</title>
+    <!-- 复用完全相同的样式，确保视觉统一 -->
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -15,10 +16,23 @@
             line-height: 1.6;
         }
         .container { max-width: 960px; margin: 0 auto; padding: 40px 20px; }
-        header { text-align: center; color: white; margin-bottom: 50px; padding-top: 20px; }
-        .logo { font-size: 3em; font-weight: bold; letter-spacing: 8px; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
-        .tagline { font-size: 1.3em; margin-top: 15px; opacity: 0.95; }
-        .desc { margin-top: 12px; opacity: 0.85; max-width: 500px; margin-left: auto; margin-right: auto; }
+        header { text-align: center; color: white; margin-bottom: 40px; padding-top: 20px; }
+        .logo { font-size: 2.8em; font-weight: bold; letter-spacing: 4px; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
+        .logo-en { font-size: 1.1em; letter-spacing: 2px; opacity: 0.9; margin-top: 8px; }
+        .back-link {
+            display: inline-block;
+            margin-top: 25px;
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            border: 1px solid rgba(255,255,255,0.5);
+            padding: 8px 20px;
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+        .back-link:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-2px);
+        }
         .lang-switch {
             position: fixed;
             top: 20px;
@@ -39,93 +53,52 @@
             border-radius: 20px;
             padding: 50px 40px;
             box-shadow: 0 15px 50px rgba(0,0,0,0.25);
+            margin-bottom: 40px;
         }
-        h2 {
+        h1 {
             color: #667eea;
-            margin-bottom: 25px;
-            font-size: 1.6em;
+            margin-bottom: 30px;
+            font-size: 2em;
+            text-align: center;
             position: relative;
-            padding-bottom: 12px;
+            padding-bottom: 15px;
         }
-        h2::after {
+        h1::after {
             content: '';
             position: absolute;
             bottom: 0;
-            left: 0;
-            width: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
             height: 3px;
             background: linear-gradient(90deg, #667eea, #764ba2);
             border-radius: 2px;
         }
-        .section { margin-bottom: 45px; }
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 20px;
+        h2 {
+            color: #555;
+            margin: 35px 0 15px 0;
+            font-size: 1.3em;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eee;
         }
-        .feature {
-            background: linear-gradient(135deg, #f8f9fc 0%, #eef1f5 100%);
-            padding: 25px 20px;
-            border-radius: 12px;
+        .section { margin-bottom: 25px; }
+        p, li { margin-bottom: 12px; color: #444; }
+        ul, ol { padding-left: 25px; margin-bottom: 15px; }
+        strong { color: #555; }
+        .update-date {
             text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
+            color: #764ba2;
+            font-weight: bold;
+            margin-bottom: 30px;
+            padding: 10px;
+            background: #f8f9fc;
+            border-radius: 10px;
         }
-        .feature:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(102,126,234,0.15); }
-        .feature-icon { font-size: 2.2em; margin-bottom: 12px; }
-        .feature-title { font-weight: bold; color: #667eea; font-size: 1.05em; }
-        .feature-desc { color: #666; font-size: 0.9em; margin-top: 8px; }
-        .screenshots {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-        .screenshot-item {
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.12);
-            transition: transform 0.3s;
-        }
-        .screenshot-item:hover { transform: scale(1.03); }
-        .screenshot-item img { width: 100%; height: auto; display: block; }
-        .tech-section { text-align: center; }
-        .tech-tags {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 12px;
-            margin-top: 20px;
-        }
-        .tech-tag {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 0.95em;
-        }
-        .contact {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 40px;
-            border-radius: 16px;
-            text-align: center;
-        }
-        .contact h2 { color: white; text-align: center; }
-        .contact h2::after { left: 50%; transform: translateX(-50%); background: rgba(255,255,255,0.5); }
-        .contact-email {
-            display: inline-block;
-            background: rgba(255,255,255,0.15);
-            padding: 15px 30px;
-            border-radius: 30px;
-            margin-top: 15px;
-            transition: background 0.3s;
-        }
-        .contact-email:hover { background: rgba(255,255,255,0.25); }
-        .contact a { color: white; text-decoration: none; font-size: 1.1em; }
         footer { text-align: center; color: white; padding: 35px; opacity: 0.85; }
         @media (max-width: 600px) {
             .content { padding: 30px 20px; }
             .logo { font-size: 2.2em; }
-            .features { grid-template-columns: 1fr 1fr; }
+            h1 { font-size: 1.7em; }
         }
     </style>
 </head>
@@ -133,108 +106,134 @@
     <div class="lang-switch" onclick="toggleLang()">EN / 中</div>
     <div class="container">
         <header>
-            <div class="logo">CHROMATIC</div>
-            <div class="tagline" id="tagline">拟物风格颜色选择器</div>
-            <div class="desc" id="desc">精致的拟物化设计，支持 HEX、RGB、HSL 多种颜色格式，让选色成为一种享受</div>
+            <div class="logo">北离颜色选择器</div>
+            <div class="logo-en">BeiliColorPicker</div>
+            <a href="index.html" class="back-link">← 返回应用主页</a>
         </header>
         <div class="content">
-            <section class="section">
-                <h2 id="featuresTitle">功能特性</h2>
-                <div class="features">
-                    <div class="feature">
-                        <div class="feature-icon">🎨</div>
-                        <div class="feature-title" data-zh="拟物设计" data-en="Skeuomorphic">拟物设计</div>
-                        <div class="feature-desc" data-zh="金属质感与复古LCD" data-en="Metal texture & retro LCD">金属质感与复古LCD</div>
-                    </div>
-                    <div class="feature">
-                        <div class="feature-icon">🌈</div>
-                        <div class="feature-title" data-zh="多格式支持" data-en="Multi-format">多格式支持</div>
-                        <div class="feature-desc" data-zh="HEX / RGB / HSL" data-en="HEX / RGB / HSL">HEX / RGB / HSL</div>
-                    </div>
-                    <div class="feature">
-                        <div class="feature-icon">🎯</div>
-                        <div class="feature-title" data-zh="精准选色" data-en="Precise Picking">精准选色</div>
-                        <div class="feature-desc" data-zh="色盘+色相+RGB滑块" data-en="Palette + Hue + RGB">色盘+色相+RGB滑块</div>
-                    </div>
-                    <div class="feature">
-                        <div class="feature-icon">📋</div>
-                        <div class="feature-title" data-zh="一键复制" data-en="Quick Copy">一键复制</div>
-                        <div class="feature-desc" data-zh="快速复制颜色值" data-en="Copy color values">快速复制颜色值</div>
-                    </div>
-                    <div class="feature">
-                        <div class="feature-icon">🌍</div>
-                        <div class="feature-title" data-zh="中英双语" data-en="Bilingual">中英双语</div>
-                        <div class="feature-desc" data-zh="界面语言切换" data-en="Language switch">界面语言切换</div>
-                    </div>
-                    <div class="feature">
-                        <div class="feature-icon">📱</div>
-                        <div class="feature-title" data-zh="跨平台" data-en="Cross-platform">跨平台</div>
-                        <div class="feature-desc" data-zh="iOS / Android / H5" data-en="iOS / Android / H5">iOS / Android / H5</div>
-                    </div>
-                </div>
-            </section>
-            <section class="section">
-                <h2 id="screenshotsTitle">应用截图</h2>
-                <div class="screenshots">
-                    <div class="screenshot-item"><img src="screenshots/screenshot-1-red.png" alt="Red"></div>
-                    <div class="screenshot-item"><img src="screenshots/screenshot-2-blue.png" alt="Blue"></div>
-                    <div class="screenshot-item"><img src="screenshots/screenshot-3-green.png" alt="Green"></div>
-                    <div class="screenshot-item"><img src="screenshots/screenshot-4-purple.png" alt="Purple"></div>
-                </div>
-            </section>
-            <section class="section tech-section">
-                <h2 id="techTitle" style="text-align:center;">技术栈</h2>
-                <div class="tech-tags">
-                    <span class="tech-tag">Vue 3</span>
-                    <span class="tech-tag">uni-app</span>
-                    <span class="tech-tag">Vite</span>
-                    <span class="tech-tag">CSS3</span>
-                </div>
-            </section>
-            <section class="contact">
-                <h2 id="contactTitle">联系方式</h2>
-                <div class="contact-email">
-                    <a href="mailto:xp120214@gmail.com">📧 xp120214@gmail.com</a>
-                </div>
-            </section>
+            <h1 id="policyTitle">隐私政策</h1>
+            <div class="update-date" id="updateDate">生效日期：2026年2月27日</div>
+
+            <!-- 隐私政策具体内容，支持中英切换 -->
+            <div class="section" id="sectionIntro">
+                <p>感谢您选择<b>北离颜色选择器 (BeiliColorPicker)</b>。我们深知隐私的重要性，并致力于保护您的个人信息。本隐私政策旨在清晰地说明，当您使用我们的应用时，我们如何处理信息。</p>
+                <p>请注意，<b>我们不会主动收集或存储任何可识别您个人身份的信息</b>。本应用的核心功能是在您的设备上本地运行的颜色选择工具。</p>
+            </div>
+
+            <div class="section">
+                <h2 id="h21">1. 我们收集的信息</h2>
+                <p>为了提供基本应用功能和分析以改进产品，我们可能通过第三方服务（如 Apple App Store 或 Google Play）接收到<strong>匿名的、汇总的数据</strong>，这些数据<strong>无法用于识别您的身份</strong>。这些信息可能包括：</p>
+                <ul id="list1">
+                    <li><strong>使用情况数据</strong>：例如，应用会话时长、功能使用频率、国家/地区（仅用于宏观统计）。</li>
+                    <li><strong>设备信息</strong>：例如，设备型号、操作系统版本、语言设置。这些信息是匿名的，用于优化应用兼容性。</li>
+                    <li><strong>诊断数据</strong>：应用如果发生崩溃，可能会生成匿名报告，帮助我们修复问题。</li>
+                </ul>
+                <p>所有此类数据的收集均由 Apple 或 Google 等平台方在其隐私政策框架内进行。您通常可以在设备的系统设置中关闭此类数据共享。</p>
+            </div>
+
+            <div class="section">
+                <h2 id="h22">2. 信息的用途</h2>
+                <p>我们仅会出于以下合法目的处理匿名信息：</p>
+                <ul id="list2">
+                    <li>保障应用的稳定运行，修复错误和崩溃。</li>
+                    <li>了解用户整体如何使用我们的应用，以指导未来功能的开发和改进。</li>
+                    <li>满足应用商店的合规要求。</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2 id="h23">3. 第三方服务</h2>
+                <p>我们的应用依赖以下第三方服务，它们有各自独立的隐私政策：</p>
+                <ul id="list3">
+                    <li><strong>Apple App Store / Google Play Store</strong>：用于应用分发、更新和匿名统计分析。</li>
+                    <li><strong>uni-app 框架</strong>：作为底层开发框架，其运行时可能需要基础的系统权限以调用设备功能（如复制到剪贴板），但不会主动传输用户数据。</li>
+                </ul>
+                <p>我们建议您阅读这些第三方的隐私政策，了解他们如何处理数据。</p>
+            </div>
+
+            <div class="section">
+                <h2 id="h24">4. 您的权利</h2>
+                <p>由于我们不收集个人数据，因此通常不涉及数据访问、更正或删除的请求。如果您对隐私有任何疑问，欢迎随时联系我们。</p>
+            </div>
+
+            <div class="section">
+                <h2 id="h25">5. 政策更新</h2>
+                <p>我们可能会不时更新本隐私政策。任何更改都会在此页面上发布，并更新顶部的“生效日期”。我们鼓励您定期查看此政策以了解最新信息。</p>
+            </div>
+
+            <div class="section">
+                <h2 id="h26">6. 联系我们</h2>
+                <p>如果您对本隐私政策或应用有任何疑问、意见或建议，请通过以下方式联系我们：</p>
+                <p style="text-align: center; margin-top: 20px;">
+                    <strong>📧 <a href="mailto:xp120214@gmail.com">xp120214@gmail.com</a></strong>
+                </p>
+                <p style="text-align: center;">或访问我们的 <a href="index.html">技术支持主页</a>。</p>
+            </div>
         </div>
         <footer>
-            <p>© 2026 CHROMATIC</p>
+            <p>© 2026 北离颜色选择器 BeiliColorPicker. All rights reserved.</p>
         </footer>
     </div>
+
+    <!-- 语言切换脚本 -->
     <script>
         let lang = 'zh';
         const texts = {
             zh: {
-                tagline: '拟物风格颜色选择器',
-                desc: '精致的拟物化设计，支持 HEX、RGB、HSL 多种颜色格式，让选色成为一种享受',
-                features: '功能特性',
-                screenshots: '应用截图',
-                tech: '技术栈',
-                contact: '联系方式'
+                policyTitle: '隐私政策',
+                updateDate: '生效日期：2026年2月27日',
+                sectionIntro: `<p>感谢您选择<b>北离颜色选择器 (BeiliColorPicker)</b>。我们深知隐私的重要性，并致力于保护您的个人信息。本隐私政策旨在清晰地说明，当您使用我们的应用时，我们如何处理信息。</p><p>请注意，<b>我们不会主动收集或存储任何可识别您个人身份的信息</b>。本应用的核心功能是在您的设备上本地运行的颜色选择工具。</p>`,
+                h21: '1. 我们收集的信息',
+                list1: `<li><strong>使用情况数据</strong>：例如，应用会话时长、功能使用频率、国家/地区（仅用于宏观统计）。</li>
+                       <li><strong>设备信息</strong>：例如，设备型号、操作系统版本、语言设置。这些信息是匿名的，用于优化应用兼容性。</li>
+                       <li><strong>诊断数据</strong>：应用如果发生崩溃，可能会生成匿名报告，帮助我们修复问题。</li>`,
+                h22: '2. 信息的用途',
+                list2: `<li>保障应用的稳定运行，修复错误和崩溃。</li>
+                       <li>了解用户整体如何使用我们的应用，以指导未来功能的开发和改进。</li>
+                       <li>满足应用商店的合规要求。</li>`,
+                h23: '3. 第三方服务',
+                list3: `<li><strong>Apple App Store / Google Play Store</strong>：用于应用分发、更新和匿名统计分析。</li>
+                       <li><strong>uni-app 框架</strong>：作为底层开发框架，其运行时可能需要基础的系统权限以调用设备功能（如复制到剪贴板），但不会主动传输用户数据。</li>`,
+                h24: '4. 您的权利',
+                h25: '5. 政策更新',
+                h26: '6. 联系我们'
             },
             en: {
-                tagline: 'Skeuomorphic Color Picker',
-                desc: 'Elegant skeuomorphic design with HEX, RGB, HSL support. Make color picking a pleasure.',
-                features: 'Features',
-                screenshots: 'Screenshots',
-                tech: 'Tech Stack',
-                contact: 'Contact'
+                policyTitle: 'Privacy Policy',
+                updateDate: 'Effective Date: February 27, 2026',
+                sectionIntro: `<p>Thank you for choosing <b>BeiliColorPicker</b>. We value your privacy and are committed to protecting your personal information. This Privacy Policy aims to clearly explain how we handle information when you use our app.</p><p>Please note that <b>we do not actively collect or store any personally identifiable information</b>. The core functionality of this app is a color-picking tool that runs locally on your device.</p>`,
+                h21: '1. Information We Collect',
+                list1: `<li><strong>Usage Data</strong>: e.g., app session duration, feature usage frequency, country/region (for macro statistics only).</li>
+                       <li><strong>Device Information</strong>: e.g., device model, operating system version, language settings. This information is anonymous and used to optimize app compatibility.</li>
+                       <li><strong>Diagnostic Data</strong>: If the app crashes, an anonymous report may be generated to help us fix the issue.</li>`,
+                h22: '2. Use of Information',
+                list2: `<li>To ensure the stable operation of the app, fix bugs and crashes.</li>
+                       <li>To understand how users interact with our app as a whole, guiding the development and improvement of future features.</li>
+                       <li>To comply with app store requirements.</li>`,
+                h23: '3. Third-Party Services',
+                list3: `<li><strong>Apple App Store / Google Play Store</strong>: For app distribution, updates, and anonymous statistical analysis.</li>
+                       <li><strong>uni-app Framework</strong>: As the underlying development framework, its runtime may require basic system permissions to access device features (e.g., copy to clipboard), but does not actively transmit user data.</li>`,
+                h24: '4. Your Rights',
+                h25: '5. Policy Updates',
+                h26: '6. Contact Us'
             }
         };
+
         function toggleLang() {
             lang = lang === 'zh' ? 'en' : 'zh';
-            document.getElementById('tagline').textContent = texts[lang].tagline;
-            document.getElementById('desc').textContent = texts[lang].desc;
-            document.getElementById('featuresTitle').textContent = texts[lang].features;
-            document.getElementById('screenshotsTitle').textContent = texts[lang].screenshots;
-            document.getElementById('techTitle').textContent = texts[lang].tech;
-            document.getElementById('contactTitle').textContent = texts[lang].contact;
-            document.querySelectorAll('.feature-title, .feature-desc').forEach(el => {
-                if (el.getAttribute('data-' + lang)) {
-                    el.textContent = el.getAttribute('data-' + lang);
-                }
-            });
+            // 更新所有带ID的元素
+            document.getElementById('policyTitle').textContent = texts[lang].policyTitle;
+            document.getElementById('updateDate').textContent = texts[lang].updateDate;
+            document.getElementById('sectionIntro').innerHTML = texts[lang].sectionIntro;
+            document.getElementById('h21').textContent = texts[lang].h21;
+            document.getElementById('list1').innerHTML = texts[lang].list1;
+            document.getElementById('h22').textContent = texts[lang].h22;
+            document.getElementById('list2').innerHTML = texts[lang].list2;
+            document.getElementById('h23').textContent = texts[lang].h23;
+            document.getElementById('list3').innerHTML = texts[lang].list3;
+            document.getElementById('h24').textContent = texts[lang].h24;
+            document.getElementById('h25').textContent = texts[lang].h25;
+            document.getElementById('h26').textContent = texts[lang].h26;
         }
     </script>
 </body>
